@@ -13,6 +13,7 @@ class KittenInline(admin.StackedInline):
 class HomeschoolApplication(admin.ModelAdmin):
 	list_display = ('application_date', 'last_name', 'first_name')
 	inlines = [KittenInline, ]
+	list_filter = ['application_date', 'rescue_type', ]
 
 @admin.register(Kitten)
 class HomeschoolApplication(admin.ModelAdmin):
