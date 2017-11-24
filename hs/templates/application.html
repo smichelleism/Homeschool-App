@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<html>
+<head>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script>
+                $(function() {
+                        $( "#id_date_found" ).datepicker({
+                                dateFormat: "yy-mm-dd",
+                                defaultDate: "+1w",
+                                changeMonth: true,
+                                numberOfMonths: 1,
+                                onClose: function( selectedDate ) {
+                                        $( "#id_date_found" ).datepicker( "option", "minDate", selectedDate );
+                                }
+                        });
+                });
+        </script>
+</head>
+<body>
+
+
+	<h1>Homeschool Application</h1>
+
+	<h2>If you have ever found a kitten, you know how fast your thoughts start racing with questions. What am I going to do? Who can help me? What do kittens even eat??</h2>
+
+<p>Well that's what we're here for! Our homeschool program is a support net for people and their feral kittens. We believe that if you got a kitten off the street and have basic means, transportation, and a network of friends, you don't need us to save that kitten, because you've already done that part! What you need is support in your rescue endeavors. </p>
+
+<p>As part of our homeschool program, we offer answers to any questions, medical services, and spay/neuter appointments. So all you need to think about is finding your new buddy a home.</p>
+
+<p>The first step is completing this application for Homeschool Services. All fields are required. Thank you.</p>
+
+<form method="POST">
+	{% csrf_token %}
+	<table>
+		{{ form.as_ul }}
+	</table>
+	<button type="submit">Submit</button>
+</form>
+</body>
+</html>
