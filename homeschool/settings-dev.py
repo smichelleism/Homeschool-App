@@ -25,7 +25,7 @@ SECRET_KEY = '9s3ir9+(=qaxixyoj=ec1=%6iwui3np+i=th8aw8c32j(3(dk!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["kbhomeschool.pythonanywhere.com"]
 
 
 # Application definition
