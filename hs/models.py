@@ -82,8 +82,10 @@ class Kitten (models.Model):
 	ESCAPED		= 'E'
 	TIAA		= 'T'
 	OTHER 		= 'O'
+	INPROGRAM 	= 'P'
 
 	OUTCOME_CHOICES	= (
+		(INPROGRAM, "In HS Program"),
 		(ADOPTED, "Adopted"),
 		(DECEASED, "Deceased"),
 		(ESCAPED, "Escaped"),
