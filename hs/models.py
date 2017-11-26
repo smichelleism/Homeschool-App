@@ -11,7 +11,6 @@ class HomeschoolApplication(models.Model):
 	LEVEL65 = '65'
 	LEVEL99 = '99'
 
-
 	HH_INCOME_CHOICES	= (
 		(LEVEL24, "Below 24,000"),
 		(LEVEL35, "Between 24,000 and 35,000"),
@@ -30,7 +29,20 @@ class HomeschoolApplication(models.Model):
 		(GC,"Guidence Counselor"),
 		(FS, "Foster"))
 
+	CLOSED 		= 'C'
+	OPEN		= 'O'
+	ACTIVE 		= 'A'
+	PENDING		= 'P'
+	NEWCONTACT 	= 'N'
 
+	APPLICATION_STATUS_CHOICES = (
+		(ACTIVE, "Active"),
+		(OPEN, "Open"),
+		(CLOSED, "Closed"),
+		(PENDING, "Pending"),
+		(NEWCONTACT, "New Contact"))
+
+	application_status 	= models.CharField(max_length = 1, choices = APPLICATION_STATUS_CHOICES, default = NEWCONTACT)
 	rescue_type			= models.CharField(max_length = 2, choices = RESCUE_CHOICES, blank=True, null=True)
 	hh_income	 		= models.CharField(max_length = 2, choices=HH_INCOME_CHOICES, verbose_name="What is your household income?", blank=True, null=True)
 	application_date	= models.DateTimeField(default=timezone.now)
@@ -70,8 +82,10 @@ class Kitten (models.Model):
 	ESCAPED		= 'E'
 	TIAA		= 'T'
 	OTHER 		= 'O'
+	INPROGRAM 	= 'P'
 
 	OUTCOME_CHOICES	= (
+		(INPROGRAM, "In HS Program"),
 		(ADOPTED, "Adopted"),
 		(DECEASED, "Deceased"),
 		(ESCAPED, "Escaped"),
@@ -82,9 +96,20 @@ class Kitten (models.Model):
 		(OTHER, "Other")
 		)
 
+	FEMALE 	= 'F'
+	MALE 	= 'M'
+	UNKNOWN = 'U'
+
+	GENDER_CHOICES = (
+		(FEMALE, "Female"),
+		(MALE, "Male"),
+		(UNKNOWN, 'Unknown'),
+		)
+
 	outcome	 					= models.CharField(max_length = 1, choices=OUTCOME_CHOICES, blank=True, null=True)
 	name 						= models.CharField(max_length=50, blank=True, null=True)
 	description 				= models.CharField(max_length=100,blank=True, null=True)
+	gender 						= models.CharField(max_length=1, choices=GENDER_CHOICES, default=UNKNOWN, blank=True, null=True )
 	birthdate 					= models.DateField(blank=True, null=True)
 	first_assessment 			= models.DateField(blank=True, null=True)
 	first_assessment_weight 	= models.CharField(max_length=20,blank=True, null=True)
