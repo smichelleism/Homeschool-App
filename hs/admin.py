@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.forms import TextInput, Textarea
+from django.db import models
 from .models import HomeschoolApplication, Kitten
 
 
@@ -6,7 +8,12 @@ from .models import HomeschoolApplication, Kitten
 
 class KittenInlineTab(admin.TabularInline):
 	model = Kitten
+	list_display = ( 'name', 'description')
 	extra = 0
+	formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'10'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':40})},
+    }
 
 class KittenInline(admin.StackedInline):
 	model = Kitten
@@ -22,3 +29,4 @@ class HomeschoolApplication(admin.ModelAdmin):
 @admin.register(Kitten)
 class HomeschoolApplication(admin.ModelAdmin):
 	list_display = ('name', 'description', 'outcome')
+	list_filter = [ 'outcome']
