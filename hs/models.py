@@ -11,7 +11,6 @@ class HomeschoolApplication(models.Model):
 	LEVEL65 = '65'
 	LEVEL99 = '99'
 
-
 	HH_INCOME_CHOICES	= (
 		(LEVEL24, "Below 24,000"),
 		(LEVEL35, "Between 24,000 and 35,000"),
@@ -23,14 +22,27 @@ class HomeschoolApplication(models.Model):
 	HS = 'HS'
 	GC = 'GC'
 	FS = 'FS'
-
+	
 	RESCUE_CHOICES = (
 		(IR, "Indie Rescuer"),
 		(HS, "Homeschool"),
 		(GC,"Guidence Counselor"),
 		(FS, "Foster"))
 
+	CLOSED 		= 'C'
+	OPEN		= 'O'
+	ACTIVE 		= 'A'
+	PENDING		= 'P'
+	NEWCONTACT 	= 'N'
 
+	APPLICATION_STATUS_CHOICES = (
+		(ACTIVE, "Active"),
+		(OPEN, "Open"),
+		(CLOSED, "Closed"),
+		(PENDING, "Pending"),
+		(NEWCONTACT, "New Contact"))
+
+	application_status 	= models.CharField(max_length = 1, choices = APPLICATION_STATUS_CHOICES, default = NEWCONTACT)
 	rescue_type			= models.CharField(max_length = 2, choices = RESCUE_CHOICES, blank=True, null=True)
 	hh_income	 		= models.CharField(max_length = 2, choices=HH_INCOME_CHOICES, verbose_name="What is your household income?", blank=True, null=True)
 	application_date	= models.DateTimeField(default=timezone.now)
