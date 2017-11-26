@@ -22,7 +22,7 @@ class HomeschoolApplication(models.Model):
 	HS = 'HS'
 	GC = 'GC'
 	FS = 'FS'
-	
+
 	RESCUE_CHOICES = (
 		(IR, "Indie Rescuer"),
 		(HS, "Homeschool"),
@@ -94,9 +94,20 @@ class Kitten (models.Model):
 		(OTHER, "Other")
 		)
 
+	FEMALE 	= 'F'
+	MALE 	= 'M'
+	UNKNOWN = 'U'
+
+	GENDER_CHOICES = (
+		(FEMALE, "Female"),
+		(MALE, "Male"),
+		(UNKNOWN, 'Unknown'),
+		)
+
 	outcome	 					= models.CharField(max_length = 1, choices=OUTCOME_CHOICES, blank=True, null=True)
 	name 						= models.CharField(max_length=50, blank=True, null=True)
 	description 				= models.CharField(max_length=100,blank=True, null=True)
+	gender 						= models.CharField(max_length=1, choices=GENDER_CHOICES, default=UNKNOWN, blank=True, null=True )
 	birthdate 					= models.DateField(blank=True, null=True)
 	first_assessment 			= models.DateField(blank=True, null=True)
 	first_assessment_weight 	= models.CharField(max_length=20,blank=True, null=True)
