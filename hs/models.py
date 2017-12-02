@@ -59,12 +59,14 @@ class HomeschoolApplication(models.Model):
 	own_cats			= models.CharField(verbose_name="Do you own cats?",max_length=50,blank=True, null=True)
 	other_pets			= models.CharField(verbose_name="Do you have any other pets?",max_length=50,blank=True, null=True)
 	date_found			= models.DateField(verbose_name="When did you find the kitten(s)?",blank=True, null=True)
+	est_age				= models.CharField(verbose_name="What is the estimated age of the kittens found?", max_length=50, blank=True, null=True)
 	num_found			= models.CharField(verbose_name="How many kitten(s) were found?",max_length=50,blank=True, null=True)
 	location	        = models.CharField(verbose_name='Where you find the kitten(s). Was it a business/home/school/field/or ...',  max_length=100,  blank=True, null=True)
 	seen_mom			= models.CharField(verbose_name="Have you seen the mom-cat?",max_length=50,blank=True, null=True)
 	seen_other_strays	= models.CharField(verbose_name="Have you seen other strays?",max_length=50,blank=True, null=True)
-	notes_public        = models.TextField(verbose_name='Is there any additional information which would helpful?', blank=True, null=True)
+	notes_public        = models.TextField(verbose_name='Is there any additional information which would helpful? Please describe the kittens.', blank=True, null=True)
 	notes_private       = models.TextField(verbose_name='Private KB Notes.', blank=True, null=True)
+	donations_received	= models.CharField(max_length=100, blank=True, null=True)
 
 
 	def __str__(self):
@@ -106,6 +108,7 @@ class Kitten (models.Model):
 		(UNKNOWN, 'Unknown'),
 		)
 
+	is_ready_for_adoption		= models.BooleanField(default=False)
 	outcome	 					= models.CharField(max_length = 1, choices=OUTCOME_CHOICES, blank=True, null=True)
 	name 						= models.CharField(max_length=50, blank=True, null=True)
 	description 				= models.CharField(max_length=100,blank=True, null=True)

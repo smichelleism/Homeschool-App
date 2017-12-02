@@ -25,11 +25,7 @@ SECRET_KEY = '9s3ir9+(=qaxixyoj=ec1=%6iwui3np+i=th8aw8c32j(3(dk!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ["kbhomeschool.pythonanywhere.com"]
-=======
 ALLOWED_HOSTS = ['kbhomeschool.pythonanywhere.com', '127.0.0.1', 'localhost' ]
->>>>>>> 667d3f02f460425214f367d3f3f7c2f222aa5d0a
 
 
 # Application definition
@@ -83,8 +79,12 @@ WSGI_APPLICATION = 'homeschool.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'kbhomeschool$default',
+        'USER': 'kbhomeschool',
+        'PASSWORD': '6QKTRd7NGx4Y',
+        'HOST': 'kbhomeschool.mysql.pythonanywhere-services.com',
+        'PORT': '',
     }
 }
 
