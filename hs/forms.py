@@ -18,6 +18,7 @@ class HomeschoolApplicationModelForm(forms.ModelForm):
 			'own_cats',
 			'other_pets',
 			'date_found',
+			'est_age',	
 			'num_found',
 			'location',
 			'seen_mom',

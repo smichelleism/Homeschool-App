@@ -22,9 +22,9 @@ class KittenInline(admin.StackedInline):
 
 @admin.register(HomeschoolApplication)
 class HomeschoolApplication(admin.ModelAdmin):
-	list_display = ('application_date', 'last_name', 'first_name')
+	list_display = ('application_date', 'last_name', 'first_name', 'application_status')
 	inlines = [KittenInlineTab, ]
-	list_filter = ['application_date', 'rescue_type', ]
+	list_filter = ['application_status', 'application_date', 'rescue_type', ]
 
 @admin.register(Kitten)
 class HomeschoolApplication(admin.ModelAdmin):
