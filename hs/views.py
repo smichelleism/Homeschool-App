@@ -10,7 +10,7 @@ def application_upload(request):
 		if form.is_valid():
 			model_instance = form.save(commit=False)
 			model_instance.save()
-			return redirect('https://kittybungalow.org')
+			return redirect('https://kittybungalow.org/home-school-application-thank-you/')
 	else:
 		form = HomeschoolApplicationModelForm()
 
