@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9s3ir9+(=qaxixyoj=ec1=%6iwui3np+i=th8aw8c32j(3(dk!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['kbhomeschool.pythonanywhere.com', '127.0.0.1', 'localhost','kittybungalow.org', 'www.kittybungalow.org', 'wix.com' ]
 

@@ -43,8 +43,8 @@ class HomeschoolApplication(models.Model):
 		(NEWCONTACT, "New Contact"))
 
 	application_status 	= models.CharField(max_length = 1, choices = APPLICATION_STATUS_CHOICES, default = NEWCONTACT)
+	inventory_loaned	= models.CharField(max_length = 100, blank=True, null=True)
 	rescue_type			= models.CharField(max_length = 2, choices = RESCUE_CHOICES, blank=True, null=True)
-	hh_income	 		= models.CharField(max_length = 2, choices=HH_INCOME_CHOICES, verbose_name="What is your household income?", blank=True, null=True)
 	application_date	= models.DateTimeField(default=timezone.now)
 	first_name          = models.CharField(verbose_name='What is your first name?', max_length=100)
 	last_name           = models.CharField(verbose_name='What is your family (last) name?',  max_length=100)
@@ -66,6 +66,7 @@ class HomeschoolApplication(models.Model):
 	seen_other_strays	= models.CharField(verbose_name="Have you seen other strays?",max_length=50,blank=True, null=True)
 	notes_public        = models.TextField(verbose_name='Is there any additional information which would helpful? Please describe the kittens.', blank=True, null=True)
 	notes_private       = models.TextField(verbose_name='Private KB Notes.', blank=True, null=True)
+	hh_income	 		= models.CharField(max_length = 2, choices=HH_INCOME_CHOICES, verbose_name="What is your household income?", blank=True, null=True)
 	donations_received	= models.CharField(max_length=100, blank=True, null=True)
 
 
