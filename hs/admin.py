@@ -8,7 +8,7 @@ from .models import HomeschoolApplication, Kitten
 
 class KittenInlineTab(admin.TabularInline):
 	model = Kitten
-	list_display = ( 'name', 'description')
+	list_display = ( 'source', 'outcome', 'name', 'description')
 	extra = 0
 	formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'10'})},
@@ -28,5 +28,5 @@ class HomeschoolApplication(admin.ModelAdmin):
 
 @admin.register(Kitten)
 class HomeschoolApplication(admin.ModelAdmin):
-	list_display = ('name', 'description', 'outcome')
+	list_display = ('name', 'description', 'source', 'outcome')
 	list_filter = [ 'outcome']

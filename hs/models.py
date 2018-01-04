@@ -99,6 +99,20 @@ class Kitten (models.Model):
 		(OTHER, "Other")
 		)
 
+	TNR			= 'T'
+	PUBLIC 		= 'P'
+	VOLUNTEER	= 'V'
+	KITTYCADET	= 'K'
+	UNKNOWN 	= 'U'
+
+	SOURCE_CHOICES = {
+		(TNR, 'TNR'),
+		(PUBLIC, 'Public'),
+		(VOLUNTEER, 'Volunteer'),
+		(KITTYCADET, 'Kitty Cadet'),
+		(UNKNOWN, 'Unknown')
+	}
+
 	FEMALE 	= 'F'
 	MALE 	= 'M'
 	UNKNOWN = 'U'
@@ -110,6 +124,7 @@ class Kitten (models.Model):
 		)
 
 	is_ready_for_adoption		= models.BooleanField(default=False)
+	source 						= models.CharField(max_length = 1, choices=SOURCE_CHOICES, blank=True, null=True, default = UNKNOWN)
 	outcome	 					= models.CharField(max_length = 1, choices=OUTCOME_CHOICES, blank=True, null=True)
 	name 						= models.CharField(max_length=50, blank=True, null=True)
 	description 				= models.CharField(max_length=100,blank=True, null=True)
