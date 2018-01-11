@@ -43,6 +43,7 @@ class HomeschoolApplication(models.Model):
 		(NEWCONTACT, "New Contact"))
 
 	application_status 	= models.CharField(max_length = 1, choices = APPLICATION_STATUS_CHOICES, default = NEWCONTACT)
+	closed_date			= models.DateField(blank=True, null=True)
 	inventory_loaned	= models.CharField(max_length = 100, blank=True, null=True)
 	rescue_type			= models.CharField(max_length = 2, choices = RESCUE_CHOICES, blank=True, null=True)
 	application_date	= models.DateTimeField(default=timezone.now)
@@ -92,7 +93,7 @@ class Kitten (models.Model):
 		(ADOPTED, "Adopted"),
 		(DECEASED, "Deceased"),
 		(ESCAPED, "Escaped"),
-		(FOSTERFAIL, "Foster Fail Adoption"),
+		(FOSTERFAIL, "Homeschool Fail Adoption"),
 		(INTAKE, "Intake"),
 		(RELEASED, "Released"),
 		(TIAA, "TIAA"),
