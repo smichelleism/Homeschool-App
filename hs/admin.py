@@ -25,6 +25,7 @@ class HomeschoolApplication(admin.ModelAdmin):
 	list_display = ('application_date', 'last_name', 'first_name', 'application_status')
 	inlines = [KittenInlineTab, ]
 	list_filter = ['application_status', 'application_date', 'rescue_type', ]
+	search_fields = ['last_name', 'first_name']
 
 @admin.register(Kitten)
 class HomeschoolApplication(admin.ModelAdmin):
